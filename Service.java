@@ -8,19 +8,13 @@ public class Service {
     private String message;
     
     /**
-     * inicialization function parameters
+     * function parameters
      */
-    public void setTotalKM(int totalKM) {
-        this.totalKM = totalKM;
-    }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
     /** constructor of this class*/
     public Service()
     {
@@ -37,12 +31,18 @@ public class Service {
     */
     public void record(int distance, int service_kilometer_limit)
     {
-        this.totalKM = this.totalKM + journey;
+        //fisrtly the program save the distance, every time this function is called, always sum distance.
+        this.totalKM = this.totalKM + distance;
+        // then its show when was last service
         message =  "The vehicle was last serviced at "+ this.lastServiceKM;
-        double average = this.totalKM - this.lastServiceKM;
-        if(average>service_kilometer_limit)
+        // secondly the program calculate if the car need a service, it take the total kilometers less the last service.
+        int diference = this.totalKM - this.lastServiceKM;
+        // then if the diference between total kilometres and last service is more than kilometer limit.
+        if(diference>service_kilometer_limit)
         {
+            // show a message where it warn the car must need to be service before to use.
             message = message + "\nError: Vehicle must be serviced first";
+            // finally the last service value is restart with the total kilometres the car has when show a alarm the program.
             this.lastServiceKM = this.totalKM;
         }
     }
