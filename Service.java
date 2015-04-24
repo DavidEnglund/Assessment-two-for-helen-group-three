@@ -3,15 +3,14 @@ public class Service {
     /**
      * declare variables
      */
-    private double totalKM;
-    private double lastServiceKM;
+    private int totalKM;
+    private int lastServiceKM;
     private String message;
-    private static double SERVICE_KILOMETER_LIMIT=100;
     
     /**
      * inicialization function parameters
      */
-    public void setTotalKM(double totalKM) {
+    public void setTotalKM(int totalKM) {
         this.totalKM = totalKM;
     }
 
@@ -36,12 +35,12 @@ public class Service {
     * 
     * @param journey 
     */
-    public void record(double journey)
+    public void record(int distance, int service_kilometer_limit)
     {
         this.totalKM = this.totalKM + journey;
         message =  "The vehicle was last serviced at "+ this.lastServiceKM;
         double average = this.totalKM - this.lastServiceKM;
-        if(average>SERVICE_KILOMETER_LIMIT)
+        if(average>service_kilometer_limit)
         {
             message = message + "\nError: Vehicle must be serviced first";
             this.lastServiceKM = this.totalKM;
