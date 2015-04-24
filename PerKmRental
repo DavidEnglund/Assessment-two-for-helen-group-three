@@ -11,71 +11,33 @@ package Vehicle;
  * @author 041501218
  */
 public class PerKmRental {
-    //setting variables
-    private double CostPerVehicle;
-    private double CostPerKilometer;
-    private double TotalCost;
-
+    //setting variables.these are all i need. stop trying to make it more comlpicated thom
+    private final double CostPerKilometer;
+    private double TotalKmRented;
     /*
     *saying that when there is no other value given cost per vehicle defaults to 1
-    *huge thanks to oscar for helping me join the classes
-    * 
+    *
+    * rent the car for x km
     */
+    
     public PerKmRental(double cost)
     {
-        CostPerVehicle = 1;
         this.CostPerKilometer = cost;
-        this.TotalCost = cost;
     }
 
-    public double getCostPerKilometer() 
-    {
-        return CostPerKilometer;
+    public double getCostPerKilometer(int km) 
+    {//return: cost of renting. This is a quote for an estimated price.
+        //the calculation for the costperkilometer.
+        return CostPerKilometer*km;
     }
     
-    public double getCostPerVehicle() 
-    {//stores the cost per vehicle
-        return CostPerVehicle;
+    public double getRentedKm()
+    {//tells how many km has been rented for in total.
+        return TotalKmRented;
     }
-    
    
-    public void CostPerKilometer(double journey)
-    {//the calculation for the costperkilometer
-        CostPerKilometer = journey/(CostPerKilometer + CostPerVehicle);
+    public void RentedKmJourney(int journey)
+    {//return: distance in one rental drive. This records that the vehicle has been rented (and can't overlap for the same day).
+       TotalKmRented += journey;
     }
-    
-    //the equation for the total cost and the storing of the total cost
-    public void TotalCost(double journey)
-    {
-        TotalCost = CostPerKilometer + (journey/CostPerVehicle);
-    }
-
-    public double getTotalCost() {
-        return TotalCost;
-    }
-    
-   /* 
-   public double kmRented(double kilometers)
-    {
-        
-    }
-    */
-    
-    
-    
 }
-
-/*
-all the following code goes into the vehicle class
-this goes into function/method printdetails
-//Printlines for my output using math.round for making the decimals only go to 2 places.
-                System.out.println("Cost Per Kilometer: $" + (double)Math.round(CostPerKilometer.getCostPerKilometer() * 100) / 100);
-                System.out.println("Total Cost of hiring: $" + (double)Math.round(TotalCost.getTotalCost() * 100) / 100);
-                //System.out.println("Total Km Rented: " + journey.addKilometers(makeYear) +"Km");
-                
-this goes into the addkilometers
-
-//providing the kilometers that are given in the journey function to the CostPerKilometer and TotalCost Functions.
-                CostPerKilometer.CostPerKilometer(journey.getKilometers());
-                TotalCost.TotalCost(journey.getKilometers());
-*/
