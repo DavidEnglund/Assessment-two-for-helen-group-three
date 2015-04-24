@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author David
  */
-public class Assesment2group3 {
+public class Main {
 
     /**
      * @param args the command line arguments
