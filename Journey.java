@@ -1,4 +1,6 @@
+package assesment2group3;
 
+ 
 public class Journey {
 	private static final int	SERVICE_KILOMETER_LIMIT	= 100;
 	private double				kilometers;
@@ -15,8 +17,8 @@ public class Journey {
 	 * @param kilometers the distance traveled 
 	 */
 	public void addKilometers(double kilometers) {
-		System.err.println(this.kilometers);
-		System.err.println(kilometers);
+		//System.err.println(this.kilometers);
+		//System.err.println(kilometers);
 		this.kilometers += kilometers;
 	}
 
