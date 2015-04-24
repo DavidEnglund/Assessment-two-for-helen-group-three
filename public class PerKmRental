@@ -1,0 +1,81 @@
+package Vehicle;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author 041501218
+ */
+public class PerKmRental {
+    //setting variables
+    private double CostPerVehicle;
+    private double CostPerKilometer;
+    private double TotalCost;
+
+    /*
+    *saying that when there is no other value given cost per vehicle defaults to 1
+    *huge thanks to oscar for helping me join the classes
+    * 
+    */
+    public PerKmRental(double cost)
+    {
+        CostPerVehicle = 1;
+        this.CostPerKilometer = cost;
+        this.TotalCost = cost;
+    }
+
+    public double getCostPerKilometer() 
+    {
+        return CostPerKilometer;
+    }
+    
+    public double getCostPerVehicle() 
+    {//stores the cost per vehicle
+        return CostPerVehicle;
+    }
+    
+   
+    public void CostPerKilometer(double journey)
+    {//the calculation for the costperkilometer
+        CostPerKilometer = journey/(CostPerKilometer + CostPerVehicle);
+    }
+    
+    //the equation for the total cost and the storing of the total cost
+    public void TotalCost(double journey)
+    {
+        TotalCost = CostPerKilometer + (journey/CostPerVehicle);
+    }
+
+    public double getTotalCost() {
+        return TotalCost;
+    }
+    
+   /* 
+   public double kmRented(double kilometers)
+    {
+        
+    }
+    */
+    
+    
+    
+}
+
+/*
+all the following code goes into the vehicle class
+this goes into function/method printdetails
+//Printlines for my output using math.round for making the decimals only go to 2 places.
+                System.out.println("Cost Per Kilometer: $" + (double)Math.round(CostPerKilometer.getCostPerKilometer() * 100) / 100);
+                System.out.println("Total Cost of hiring: $" + (double)Math.round(TotalCost.getTotalCost() * 100) / 100);
+                //System.out.println("Total Km Rented: " + journey.addKilometers(makeYear) +"Km");
+                
+this goes into the addkilometers
+
+//providing the kilometers that are given in the journey function to the CostPerKilometer and TotalCost Functions.
+                CostPerKilometer.CostPerKilometer(journey.getKilometers());
+                TotalCost.TotalCost(journey.getKilometers());
+*/
